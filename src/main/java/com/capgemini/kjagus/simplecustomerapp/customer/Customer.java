@@ -10,7 +10,8 @@ public class Customer {
     public Customer() {}
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(name = "customer_generator", sequenceName = "hibernate_sequence", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "customer_generator")
     public Long getId() {
         return id;
     }
